@@ -13,9 +13,22 @@ arr=[1, 2, 3, 4, 5]
 print(arr)
 print(reverse_array1(arr))
 
-#2 Using extra space
+#2 Two pointer approach using recursion
+#Complexity Time- O(n)
+def reverse_array2(arr,i,j):
+    if i>=j:
+        return
+    arr[i],arr[j]=arr[j],arr[i]
+    reverse_array2(arr,i+1,j-1)
+
+arr=[1, 2, 3, 4, 5]
+print(arr)
+reverse_array2(arr,0,len(arr)-1)
+print(arr)
+
+#3 Using extra space
 #Complexity Time- O(n), Space- O(n)
-def reverse_array1(arr):
+def reverse_array3(arr):
     arr2=[None]*(len(arr))
     j=0
     for i in range(len(arr)-1,-1,-1):
@@ -25,6 +38,14 @@ def reverse_array1(arr):
 
 arr=[1, 2, 3, 4, 5]
 print(arr)
-print(reverse_array1(arr))
+print(reverse_array3(arr))
 
-#3 
+
+#4 Using python slicing
+#Complexity Time- O(n)
+def reverse_array4(arr):
+    return arr[::-1]
+
+arr=[1, 2, 3, 4, 5]
+print(arr)
+print(reverse_array4(arr))
